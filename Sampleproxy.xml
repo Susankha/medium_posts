@@ -1,0 +1,21 @@
+<proxy name="Sampleproxy" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log>
+                <property name="in" value="==== IN ===="/>
+            </log>
+            <send>
+                <endpoint>
+                    <address uri="http://172.18.0.1:9764/services/Version/"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log>
+                <property name="out" value="=== OUT ===="/>
+            </log>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>
